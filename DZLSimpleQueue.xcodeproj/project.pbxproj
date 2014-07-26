@@ -20,7 +20,11 @@
 		EA1199131982D647009AAB36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1198F21982D647009AAB36 /* Foundation.framework */; };
 		EA1199141982D647009AAB36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1198F61982D647009AAB36 /* UIKit.framework */; };
 		EA11991C1982D647009AAB36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA11991A1982D647009AAB36 /* InfoPlist.strings */; };
-		EA11991E1982D647009AAB36 /* DZLSimpleQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA11991D1982D647009AAB36 /* DZLSimpleQueueTests.m */; };
+		EA11992C1982D66E009AAB36 /* DZLSimpleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1199291982D66E009AAB36 /* DZLSimpleQueue.m */; };
+		EA11992D1982D66E009AAB36 /* DZLSimpleQueueOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA11992B1982D66E009AAB36 /* DZLSimpleQueueOperation.m */; };
+		EA92EB671983BA2800ABAB3F /* DZLSimpleQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9ED1FD1983B92C0077D1EC /* DZLSimpleQueue.swift */; };
+		EA9ED1FE1983B92C0077D1EC /* DZLSimpleQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9ED1FD1983B92C0077D1EC /* DZLSimpleQueue.swift */; };
+		EA9ED2001983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9ED1FF1983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,12 @@
 		EA1199191982D647009AAB36 /* DZLSimpleQueueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DZLSimpleQueueTests-Info.plist"; sourceTree = "<group>"; };
 		EA11991B1982D647009AAB36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA11991D1982D647009AAB36 /* DZLSimpleQueueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZLSimpleQueueTests.m; sourceTree = "<group>"; };
+		EA1199281982D66E009AAB36 /* DZLSimpleQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZLSimpleQueue.h; sourceTree = "<group>"; };
+		EA1199291982D66E009AAB36 /* DZLSimpleQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZLSimpleQueue.m; sourceTree = "<group>"; };
+		EA11992A1982D66E009AAB36 /* DZLSimpleQueueOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZLSimpleQueueOperation.h; sourceTree = "<group>"; };
+		EA11992B1982D66E009AAB36 /* DZLSimpleQueueOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZLSimpleQueueOperation.m; sourceTree = "<group>"; };
+		EA9ED1FD1983B92C0077D1EC /* DZLSimpleQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZLSimpleQueue.swift; sourceTree = "<group>"; };
+		EA9ED1FF1983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZLSimpleQueue-SwiftTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,8 @@
 		EA1198F81982D647009AAB36 /* DZLSimpleQueue */ = {
 			isa = PBXGroup;
 			children = (
+				EA54EDE41983A009002F00FC /* DZLSimpleQueue-Swift */,
+				EA1199271982D65B009AAB36 /* DZLSimpleQueue */,
 				EA1199011982D647009AAB36 /* AppDelegate.h */,
 				EA1199021982D647009AAB36 /* AppDelegate.m */,
 				EA1199041982D647009AAB36 /* Main.storyboard */,
@@ -137,6 +149,7 @@
 		EA1199171982D647009AAB36 /* DZLSimpleQueueTests */ = {
 			isa = PBXGroup;
 			children = (
+				EA9ED1FF1983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift */,
 				EA11991D1982D647009AAB36 /* DZLSimpleQueueTests.m */,
 				EA1199181982D647009AAB36 /* Supporting Files */,
 			);
@@ -150,6 +163,25 @@
 				EA11991A1982D647009AAB36 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA1199271982D65B009AAB36 /* DZLSimpleQueue */ = {
+			isa = PBXGroup;
+			children = (
+				EA1199281982D66E009AAB36 /* DZLSimpleQueue.h */,
+				EA1199291982D66E009AAB36 /* DZLSimpleQueue.m */,
+				EA11992A1982D66E009AAB36 /* DZLSimpleQueueOperation.h */,
+				EA11992B1982D66E009AAB36 /* DZLSimpleQueueOperation.m */,
+			);
+			path = DZLSimpleQueue;
+			sourceTree = "<group>";
+		};
+		EA54EDE41983A009002F00FC /* DZLSimpleQueue-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				EA9ED1FD1983B92C0077D1EC /* DZLSimpleQueue.swift */,
+			);
+			path = "DZLSimpleQueue-Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA11992C1982D66E009AAB36 /* DZLSimpleQueue.m in Sources */,
+				EA11992D1982D66E009AAB36 /* DZLSimpleQueueOperation.m in Sources */,
+				EA9ED1FE1983B92C0077D1EC /* DZLSimpleQueue.swift in Sources */,
 				EA1199091982D647009AAB36 /* ViewController.m in Sources */,
 				EA1199031982D647009AAB36 /* AppDelegate.m in Sources */,
 				EA1198FF1982D647009AAB36 /* main.m in Sources */,
@@ -259,7 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA11991E1982D647009AAB36 /* DZLSimpleQueueTests.m in Sources */,
+				EA92EB671983BA2800ABAB3F /* DZLSimpleQueue.swift in Sources */,
+				EA9ED2001983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,10 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DZLSimpleQueue/DZLSimpleQueue-Prefix.pch";
 				INFOPLIST_FILE = "DZLSimpleQueue/DZLSimpleQueue-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,9 +428,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DZLSimpleQueue/DZLSimpleQueue-Prefix.pch";
 				INFOPLIST_FILE = "DZLSimpleQueue/DZLSimpleQueue-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -401,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DZLSimpleQueue.app/DZLSimpleQueue";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -413,7 +455,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "DZLSimpleQueueTests/DZLSimpleQueueTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -423,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DZLSimpleQueue.app/DZLSimpleQueue";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -431,6 +476,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DZLSimpleQueue/DZLSimpleQueue-Prefix.pch";
 				INFOPLIST_FILE = "DZLSimpleQueueTests/DZLSimpleQueueTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -456,6 +502,7 @@
 				EA1199231982D647009AAB36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA1199241982D647009AAB36 /* Build configuration list for PBXNativeTarget "DZLSimpleQueueTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +511,7 @@
 				EA1199261982D647009AAB36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

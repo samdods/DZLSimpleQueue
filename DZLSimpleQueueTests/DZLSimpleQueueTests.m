@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "DZLSimpleQueue.h"
 
 @interface DZLSimpleQueueTests : XCTestCase
 
@@ -14,21 +15,70 @@
 
 @implementation DZLSimpleQueueTests
 
-- (void)setUp
+- (void)testMaxConcurrentOperationCount
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  DZLSimpleQueue *queue = [DZLSimpleQueue simpleQueueWithMaxConcurrentOperationCount:3];
+  
+  __block NSUInteger numberOfOperationsStarted = 0;
+  
+  dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+  
+  // load up the queue with 20 operations
+  for (int i = 0; i < 20; i++) {
+    [queue addBlockToQueue:^{
+      numberOfOperationsStarted++;
+      dispatch_semaphore_signal(sem);
+      while(1){};
+    }];
+  }
+  
+  for (int i = 0; i < 3; i++) {
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+  }
+  
+  // ensure the queue has 20 operations in it
+  XCTAssertEqual(queue.numberOfOperations, 20, @"number of queued operations should be 20");
+  
+  // ensure 3 of the operations have started
+  XCTAssertEqual(numberOfOperationsStarted, 3, @"number of started operations should be 3");
 }
 
-- (void)tearDown
+- (void)testCancellation
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+  DZLSimpleQueue *queue = [DZLSimpleQueue simpleQueueWithMaxConcurrentOperationCount:3];
+  
+  __block NSUInteger numberOfOperationsStarted = 0;
+  
+  dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+  
+  id<DZLSimpleQueueOperation> operation = nil;
+  
+  // load up the queue with 20 operations
+  for (int i = 0; i < 20; i++) {
+    id op = [queue addBlockToQueue:^{
+      numberOfOperationsStarted++;
+      dispatch_semaphore_signal(sem);
+      while(1){};
+    }];
+    if (!operation) {
+      operation = op;
+    }
+  }
+  
+  for (int i = 0; i < 3; i++) {
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+  }
+  
+  // cancel first operation
+  [operation cancel];
+  
+  dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+  
+  // ensure the queue has 19 operations in it
+  XCTAssertEqual(queue.numberOfOperations, 19, @"number of queued operations should be 19");
+  
+  // ensure 4 of the operations have started
+  XCTAssertEqual(numberOfOperationsStarted, 4, @"number of started operations should be 4");
 }
 
 @end
