@@ -17,7 +17,7 @@ class DZLSimpleQueueSwiftTests: XCTestCase {
     var sem = dispatch_semaphore_create(0);
     
     // load up the queue with 20 operations
-    for i in 0..20 {
+    for i in 0..<20 {
       queue.addBlock {
         numberOfOperationsStarted++;
         dispatch_semaphore_signal(sem);
@@ -26,7 +26,7 @@ class DZLSimpleQueueSwiftTests: XCTestCase {
     }
     
     
-    for i in 0..3 {
+    for i in 0..<3 {
       dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
     }
     
@@ -48,7 +48,7 @@ class DZLSimpleQueueSwiftTests: XCTestCase {
     var operation: DZLSimpleQueueOperationProtocol?
 
     // load up the queue with 20 operations
-    for i in 0..20 {
+    for i in 0..<20 {
       var op = queue.addBlock {
         numberOfOperationsStarted++;
         dispatch_semaphore_signal(sem);
@@ -61,7 +61,7 @@ class DZLSimpleQueueSwiftTests: XCTestCase {
     }
     
     
-    for i in 0..3 {
+    for i in 0..<3 {
       dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
     }
     

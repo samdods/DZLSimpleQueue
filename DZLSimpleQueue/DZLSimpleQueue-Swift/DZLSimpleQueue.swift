@@ -91,10 +91,6 @@ class DZLSimpleQueue: DZLSimpleQueueOperationDelegate
     
   func addBlock(block: () -> ()) -> DZLSimpleQueueOperationProtocol?
   {
-    assert(block != nil, "Must pass block")
-    if block == nil {
-      return nil
-    }
     var operation: DZLSimpleQueueOperation = DZLSimpleQueueOperation(delegate:self, block)
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) { [unowned self] in
