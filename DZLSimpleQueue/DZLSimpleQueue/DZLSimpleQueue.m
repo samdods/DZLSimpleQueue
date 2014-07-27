@@ -10,6 +10,7 @@
 #import "DZLSimpleQueueOperation.h"
 
 @interface DZLSimpleQueue () <DZLSimpleQueueOperationDelegate>
+@property (nonatomic, strong, readonly) dispatch_queue_t underlyingDispatchQueue;
 @property (nonatomic, strong, readonly) dispatch_semaphore_t semaphore;
 @property (nonatomic, assign, readwrite) NSUInteger numberOfOperations;
 @end
@@ -25,6 +26,7 @@
 {
   self = [super init];
   if (self) {
+    _underlyingDispatchQueue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL);
     _maxConcurrentOperationCount = maxCount;
     _semaphore = dispatch_semaphore_create(maxCount);
     _numberOfOperations = 0;
@@ -57,7 +59,7 @@
   operation.delegate = self;
   
   __weak typeof(self) weakSelf = self;
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+  dispatch_async(self.underlyingDispatchQueue, ^{
     dispatch_semaphore_wait(weakSelf.semaphore, DISPATCH_TIME_FOREVER);
     [operation start];
   });

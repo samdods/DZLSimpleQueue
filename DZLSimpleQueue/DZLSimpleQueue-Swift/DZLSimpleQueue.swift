@@ -18,6 +18,7 @@ func == (lhs: DZLSimpleQueueOperation, rhs: DZLSimpleQueueOperation) -> Bool
 protocol DZLSimpleQueueOperationProtocol
 {
   func cancel()
+  var completionHandler: (() -> ())? { get set }
 }
 
 
@@ -33,6 +34,7 @@ class DZLSimpleQueueOperation: DZLSimpleQueueOperationProtocol, Equatable
   var dispatchSource: dispatch_source_t
   var queue: dispatch_queue_t
   var uuid: NSUUID
+  var completionHandler: (() -> ())?
   
   init(delegate: DZLSimpleQueueOperationDelegate, block: () -> ())
   {
@@ -43,6 +45,7 @@ class DZLSimpleQueueOperation: DZLSimpleQueueOperationProtocol, Equatable
     dispatch_source_set_timer(self.dispatchSource, DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC, 0 * NSEC_PER_SEC)
     dispatch_source_set_event_handler(self.dispatchSource) { [unowned self] in
       block();
+      self.completionHandler?()
       self.delegate.operationDidComplete(self, finished: true)
     };
   }
@@ -63,7 +66,7 @@ class DZLSimpleQueueOperation: DZLSimpleQueueOperationProtocol, Equatable
 
 class DZLSimpleQueue: DZLSimpleQueueOperationDelegate
 {
-
+  let underlyingDispatchQueue = dispatch_queue_create("DZLSimpleQueue", DISPATCH_QUEUE_SERIAL);
   var maxConcurrentOperationCount : CLong
   var semaphore : dispatch_semaphore_t
   var operations : Array<DZLSimpleQueueOperation>
@@ -89,11 +92,11 @@ class DZLSimpleQueue: DZLSimpleQueueOperationDelegate
   }
     
     
-  func addBlock(block: () -> ()) -> DZLSimpleQueueOperationProtocol?
+  func addBlock(block: () -> ()) -> DZLSimpleQueueOperationProtocol
   {
     var operation: DZLSimpleQueueOperation = DZLSimpleQueueOperation(delegate:self, block)
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) { [unowned self] in
+    dispatch_async(underlyingDispatchQueue) { [unowned self] in
       dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
       operation.start()
     }

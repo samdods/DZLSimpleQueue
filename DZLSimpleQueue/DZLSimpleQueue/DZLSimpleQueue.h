@@ -8,6 +8,8 @@
 
 @protocol DZLSimpleQueueOperation <NSObject>
 
+@property (nonatomic, copy) void(^completionHandler)(void);
+
 - (void)cancel;
 
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DFBEEA40-EF3C-4F60-B69E-E8D750A72832</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DZLSimpleQueue</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EDCB19A4-48BA-4523-A863-70D293AC98E2</key>
+		<string>ssh://github.com/samdods/DZLSimpleQueue.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DZLSimpleQueue.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EDCB19A4-48BA-4523-A863-70D293AC98E2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/samdods/DZLSimpleQueue.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EDCB19A4-48BA-4523-A863-70D293AC98E2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EDCB19A4-48BA-4523-A863-70D293AC98E2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DZLSimpleQueue</string>
+		</dict>
+	</array>
+</dict>
+</plist>

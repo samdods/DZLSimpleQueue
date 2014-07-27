@@ -15,6 +15,8 @@
 
 @implementation DZLSimpleQueueOperation
 
+@synthesize completionHandler = _completionHandler;
+
 + (instancetype)operationWithBlock:(void (^)(void))block
 {
   return [[self alloc] initWithBlock:block];
@@ -30,6 +32,7 @@
     dispatch_source_set_timer(_dispatchSource, DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(_dispatchSource, ^{
       !block ?: block();
+      !self.completionHandler ?: self.completionHandler();
       [self.delegate operation:weakSelf didComplete:NO];
     });
   }

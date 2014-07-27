@@ -22,6 +22,7 @@
 		EA11991C1982D647009AAB36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA11991A1982D647009AAB36 /* InfoPlist.strings */; };
 		EA11992C1982D66E009AAB36 /* DZLSimpleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1199291982D66E009AAB36 /* DZLSimpleQueue.m */; };
 		EA11992D1982D66E009AAB36 /* DZLSimpleQueueOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA11992B1982D66E009AAB36 /* DZLSimpleQueueOperation.m */; };
+		EA92E3061984F7EB009B1466 /* DZLSimpleQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA11991D1982D647009AAB36 /* DZLSimpleQueueTests.m */; };
 		EA92EB671983BA2800ABAB3F /* DZLSimpleQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9ED1FD1983B92C0077D1EC /* DZLSimpleQueue.swift */; };
 		EA9ED1FE1983B92C0077D1EC /* DZLSimpleQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9ED1FD1983B92C0077D1EC /* DZLSimpleQueue.swift */; };
 		EA9ED2001983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9ED1FF1983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift */; };
@@ -296,6 +297,7 @@
 			files = (
 				EA92EB671983BA2800ABAB3F /* DZLSimpleQueue.swift in Sources */,
 				EA9ED2001983B94E0077D1EC /* DZLSimpleQueue-SwiftTests.swift in Sources */,
+				EA92E3061984F7EB009B1466 /* DZLSimpleQueueTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
